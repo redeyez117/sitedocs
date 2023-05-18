@@ -5,7 +5,7 @@ const User = ({ user }) => {
   return (
     <Card>
       <Box sx={{ px: 2, py: 1 }}>
-        <Typography>{`${user.FirstName} ${user.LastName}`}</Typography>
+        <Typography>{`${user.FirstName ? user.FirstName : ''} ${user.LastName ? user.LastName : ''}`}</Typography>
         <Stack mt={1} direction={"row"} justifyContent={"space-between"}>
           <Typography>
             {user.JobTitle ? user.JobTitle : "Unemployed"}

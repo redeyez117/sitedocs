@@ -8,18 +8,19 @@ const WorkerDetail = () => {
   const [worker, setWorker] = useState([]);
 
   useEffect(() => {
-    const fetchSelectedWorker = () => {
-      API.get(`/${id}`)
-        .then((res) => {
-          setWorker(res.data);
-        })
-        .catch((err) => {
-          alert(err.response.message);
-        });
-    };
-
-    fetchSelectedWorker();
+    fetchSelectedWorker()
   }, []);
+
+  const fetchSelectedWorker = () => {
+    API.get(`/${id}`)
+      .then((res) => {
+        setWorker(res.data);
+      })
+      .catch((err) => {
+        alert(err.response.message);
+      });
+  };
+
   return (
     <Box sx={{ width: "80%", margin: "auto", my: 4 }}>
       <User user={worker} />
